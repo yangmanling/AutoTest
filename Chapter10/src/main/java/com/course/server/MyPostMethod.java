@@ -32,13 +32,13 @@ public class MyPostMethod {
 
     @RequestMapping(value = "/getUserList",method = RequestMethod.POST)
     @ApiOperation(value = "获取用户列表",httpMethod = "POST")
-    public User getUserList(HttpServletRequest request, @RequestBody User u){
+    public String getUserList(HttpServletRequest request, @RequestBody User u){
       User user;
       //获取cookies
       Cookie[] cookies = request.getCookies();
       //验证cookies是否合法
       for (Cookie c:cookies){
-          if (c.getName()=="login"&&c.getValue()=="true"&&u.getuserName()=="zhangsan"&&u.getpassWord()=="123456"){
+          if (c.getName()=="login"&&c.getValue()=="true"&&u.getUserName()=="zhangsan"&&u.getPassWord()=="123456"){
               user=new User();
               user.setName("lisi");
               user.setAge("18");
